@@ -17,7 +17,9 @@ O projeto está organizado numa arquitetura de microserviços com duas pastas pr
 gestao-de-acessos/
 
 ├── backend/         # Contém o servidor Node.js (API)
+
 ├── frontend/        # Contém a aplicação React (Interface do Utilizador)
+
 └── docker-compose.yml # Orquestra todos os serviços
 
 🛠️ Instalação e Configuração
@@ -45,72 +47,3 @@ services:
       - DB_PASSWORD=sua_senha_do_banco
       - DB_NAME=gestao_acessos
       - DB_PORT=3306
-
-🤖 Automação com Scripts
-Para facilitar a gestão do ambiente Docker, pode criar os seguintes scripts na raiz do projeto.
-
-1. Script start.sh (Iniciar Tudo)
-Este script constrói e inicia todos os contentores em segundo plano.
-
-Crie o ficheiro start.sh e cole:
-
-#!/bin/bash
-# Este script constrói e inicia todos os serviços definidos no docker-compose.yml
-
-echo "🚀 Iniciando todos os serviços (Frontend, Backend)..."
-
-# O comando 'docker compose up' com a flag '-d' (detached) inicia os contentores em segundo plano.
-# A flag '--build' força a reconstrução das imagens se houver alguma alteração nos Dockerfiles.
-docker compose up --build -d
-
-echo "✅ Ambiente iniciado com sucesso!"
-echo "-------------------------------------"
-echo "Frontend disponível em: http://localhost:3000"
-echo "Backend disponível em:  http://localhost:4000"
-echo "-------------------------------------"
-echo "Para ver os logs, use: docker compose logs -f"
-echo "Para parar os serviços, use: ./stop.sh"
-
-2. Script stop.sh (Parar Tudo)
-Este script para os contentores que estão a rodar.
-
-Crie o ficheiro stop.sh e cole:
-
-#!/bin/bash
-# Este script para todos os serviços que estão a rodar.
-
-echo "🛑 Parando todos os serviços..."
-
-# O comando 'docker compose down' para e remove os contentores e a rede.
-docker compose down
-
-echo "✅ Serviços parados."
-
-3. Script clean.sh (Limpeza Total)
-Este script para e remove os contentores, as redes e as imagens construídas.
-
-Crie o ficheiro clean.sh e cole:
-
-#!/bin/bash
-# Este script faz uma limpeza completa do ambiente.
-
-echo "🧼 Realizando limpeza completa..."
-
-# Para e remove os contentores, a rede e todas as imagens associadas.
-docker compose down --rmi all -v
-
-echo "✅ Limpeza concluída."
-
-Como Usar os Scripts
-Torne os Scripts Executáveis:
-Execute este comando uma única vez no seu terminal para dar permissão de execução aos ficheiros:
-
-chmod +x start.sh stop.sh clean.sh
-
-Execute os Comandos:
-
-Para iniciar o ambiente: ./start.sh
-
-Para parar o ambiente: ./stop.sh
-
-Para uma limpeza completa: ./clean.sh
