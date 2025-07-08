@@ -26,8 +26,8 @@ services:
       # --- IMPORTANTE: PREENCHA ESTES VALORES ---
       # Se o banco de dados está a rodar na sua máquina (fora do Docker), use 'host.docker.internal'
       # Se estiver noutro servidor na rede, use o IP ou hostname desse servidor.
-      - DB_HOST=10.1.0.149
-      - DB_USER=UNIWARE
-      - DB_PASSWORD=DBUCFGS
+      - DB_HOST=host
+      - DB_USER=user
+      - DB_PASSWORD=senha
       - DB_NAME=gestao_acessos
       - DB_PORT=3306
