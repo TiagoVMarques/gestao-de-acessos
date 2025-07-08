@@ -15,11 +15,8 @@ Base de Dados MariaDB: Uma instância do MariaDB (versão 10 ou superior) a roda
 O projeto está organizado numa arquitetura de microserviços com duas pastas principais:
 
 gestao-de-acessos/
-
 ├── backend/         # Contém o servidor Node.js (API)
-
 ├── frontend/        # Contém a aplicação React (Interface do Utilizador)
-
 └── docker-compose.yml # Orquestra todos os serviços
 
 🛠️ Instalação e Configuração
